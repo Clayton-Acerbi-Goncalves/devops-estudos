@@ -1,0 +1,24 @@
+=== COMANDOS QUE EU JA SEI ===
+
+NAVEGACAO:
+
+pwd	- mostra onde estou
+ls	- lista aquivos
+ls -la  - lista com detalhes
+cd	- entra em pasta
+cd ..   - volta uma pasta
+cd ~    - vai para a home
+
+
+CRIAR E DELETAR
+
+mkdir	- cria pasta
+touch	- cria arquivo vazio
+rm	- deleta aquivo
+rm -rf  - deleta pasta inteira
+
+LEITURA
+
+cat	- mostra conteudo
+less    - abre para leitura
+grep    - procura texto
