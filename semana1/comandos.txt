@@ -22,3 +22,20 @@ LEITURA
 cat	- mostra conteudo
 less    - abre para leitura
 grep    - procura texto
+
+=== BUSCA E FILTRO ===
+
+grep "texto" arquivo          - procura texto dentro do arquivo
+grep "texto" arquivo -r       - procura em todos os arquivos da pasta
+find /pasta -name "*.sh"      - encontra arquivos pelo nome
+tail -f arquivo               - monitora arquivo ao vivo
+wc -l                         - conta linha
+cmd1 | cmd2                   - pipe: passa resultado de um para outro
+
+
+=== EXEMPLOS REAIS ===
+
+grep "error" /var/log/nginx/error.log  - ver erros do Nginx
+tail -f /var/log/nginx/access.log      - monitorar acessos ao vivo
+find ~ -name "*.sh" | wc -l            - contar scripts
+
