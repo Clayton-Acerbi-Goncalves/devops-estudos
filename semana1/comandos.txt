@@ -39,3 +39,32 @@ grep "error" /var/log/nginx/error.log  - ver erros do Nginx
 tail -f /var/log/nginx/access.log      - monitorar acessos ao vivo
 find ~ -name "*.sh" | wc -l            - contar scripts
 
+
+=== PROCESSOS ===
+
+ps aux               - lista todos os processos rodando
+ps aux | grep nginx  - filtra processo específico
+top                  - monitor em tempo real (q para sair)
+kill PID             - para um processo pelo número
+kill -9 PID          - força parada imediata
+
+=== SYSTEMCTL - CONTROLAR SERVIÇOS ===
+
+systemctl status nginx   - ver status do serviço
+systemctl start nginx    - iniciar
+systemctl stop nginx     - parar
+systemctl restart nginx  - reiniciar
+systemctl enable nginx   - iniciar automaticamente no boot
+
+=== CRON - AGENDAMENTO ===
+
+crontab -e   - editar agendamentos
+crontab -l   - listar agendamentos
+
+FORMATO: minuto hora dia mês diaSemana comando
+0 8 * * *    - todo dia às 8am
+*/5 * * * *  - a cada 5 minutos
+0 * * * *    - todo hora
+
+
+
