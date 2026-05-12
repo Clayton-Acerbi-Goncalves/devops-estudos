@@ -1,85 +1,94 @@
-# DevOps Cheat Sheet — Clayton Acerbi
+# DevOps Cheat Sheet — Clayton Acerbi Goncalves
 
 ## LINUX — NAVEGAÇÃO
-pwd                    - onde estou
-ls                     - listar arquivos
-ls -la                 - listar com detalhes
-cd pasta               - entrar em pasta
-cd ..                  - voltar uma pasta
-cd ~                   - ir para home
+pwd        - where am I
+ls         - list files
+ls -la     - list with details
+cd pasta   - enter folder
+cd ..      - go back one folder
+cd ~       - go to home
 
-## LINUX — ARQUIVOS
-mkdir nome             - criar pasta
-touch arquivo          - criar arquivo vazio
-cp a b                 - copiar arquivo
-mv a b                 - mover ou renomear
-rm arquivo             - deletar arquivo
-rm -rf pasta           - deletar pasta inteira
-cat arquivo            - ver conteúdo
-nano arquivo           - editar arquivo
+## LINUX — FILES
+mkdir nome      - create folder
+touch file      - create empty file
+cp a b          - copy file
+mv a b          - move or rename
+rm file         - delete file
+rm -rf folder   - delete folder
+cat file        - show content
+nano file       - edit file
 
-## LINUX — BUSCA E FILTRO
-grep "texto" arquivo   - procurar texto
-find ~ -name "*.sh"    - encontrar arquivos
-tail -f arquivo        - monitorar ao vivo
-cmd1 | cmd2            - pipe: combinar comandos
-wc -l                  - contar linhas
+## LINUX — SEARCH & FILTER
+grep "text" file       - search text in file
+grep "text" -r folder  - search in all files
+find ~ -name "*.sh"    - find files by name
+tail -f file           - monitor file live
+cmd1 | cmd2            - pipe: combine commands
+wc -l                  - count lines
 
-## LINUX — PROCESSOS
-ps aux                 - listar processos
-ps aux | grep nginx    - filtrar processo
-top                    - monitor em tempo real
-kill PID               - parar processo
+## LINUX — PROCESSES
+ps aux              - list all processes
+ps aux | grep name  - filter process
+top                 - real time monitor
+kill PID            - stop process
+kill -9 PID         - force stop
 
-## LINUX — SERVIÇOS
-systemctl status nginx   - ver status
-systemctl start nginx    - iniciar
-systemctl stop nginx     - parar
-systemctl restart nginx  - reiniciar
-systemctl enable nginx   - iniciar no boot
+## LINUX — SERVICES
+systemctl status name    - check status
+systemctl start name     - start service
+systemctl stop name      - stop service
+systemctl restart name   - restart service
+systemctl enable name    - start on boot
 
-## LINUX — PERMISSÕES
-chmod +x script.sh     - dar permissão de executar
-chmod 400 chave.pem    - somente leitura
-sudo comando           - rodar como admin
+## LINUX — PERMISSIONS
+chmod +x script.sh   - give execute permission
+chmod 400 key.pem    - read only
+sudo command         - run as admin
 
-## CRON — AGENDAMENTO
-crontab -e             - editar agendamentos
-crontab -l             - listar agendamentos
-* * * * *              - min hora dia mes diaSemana
+## CRON — SCHEDULING
+crontab -e   - edit scheduled tasks
+crontab -l   - list scheduled tasks
+
+# Format: minute hour day month weekday command
+0 8 * * *    - every day at 8am
+*/5 * * * *  - every 5 minutes
+0 * * * *    - every hour
 
 ## GIT
-git init               - iniciar repositório
-git status             - ver mudanças
-git add .              - preparar arquivos
-git commit -m "msg"    - salvar ponto
-git push               - enviar para GitHub
-git pull               - baixar do GitHub
-git log --oneline      - ver histórico
+git init              - start repository
+git status            - see changes
+git add .             - stage files
+git commit -m "msg"   - save checkpoint
+git push              - send to GitHub
+git pull              - download from GitHub
+git log --oneline     - see history
+git branch name       - create branch
+git checkout name     - switch branch
 
 ## SSH
-ssh my-server                        - conectar servidor
-ssh -i chave.pem ubuntu@IP           - conectar com chave
-scp arquivo ubuntu@IP:/destino       - copiar arquivo
+ssh my-server                     - connect to server (config alias)
+ssh -i key.pem ubuntu@IP          - connect with key
+scp file ubuntu@IP:/destination   - copy file to server
 
 ## AWS CLI
-aws s3 ls                            - listar buckets
-aws s3 mb s3://nome --region         - criar bucket
-aws s3 cp arquivo s3://bucket/       - upload arquivo
-aws ec2 describe-instances           - listar EC2
-aws ec2 start-instances --instance-ids ID  - ligar EC2
-aws ec2 stop-instances --instance-ids ID   - desligar EC2
-aws sts get-caller-identity          - verificar login
+aws sts get-caller-identity                        - check login
+aws s3 ls                                          - list buckets
+aws s3 mb s3://name --region eu-west-2             - create bucket
+aws s3 cp file s3://bucket/                        - upload file
+aws s3 ls s3://bucket/                             - list bucket content
+aws ec2 describe-instances                         - list EC2 instances
+aws ec2 start-instances --instance-ids ID          - start EC2
+aws ec2 stop-instances --instance-ids ID           - stop EC2
 
 ## DOCKER
-docker --version                     - ver versão
-docker images                        - listar images
-docker ps                            - containers rodando
-docker ps -a                         - todos containers
-docker build -t nome .               - criar image
-docker run -d -p 8080:8080 nome      - rodar container
-docker stop nome                     - parar container
-docker start nome                    - iniciar container
-docker logs nome                     - ver logs
-docker rm nome                       - deletar container
-docker rmi nome                      - deletar image
+docker --version                        - check version
+docker images                           - list images
+docker ps                               - running containers
+docker ps -a                            - all containers
+docker build -t name .                  - build image
+docker run -d -p 8080:8080 name         - run container
+docker stop name                        - stop container
+docker start name                       - start container
+docker logs name                        - see logs
+docker rm name                          - delete container
+docker rmi name                         - delete image
